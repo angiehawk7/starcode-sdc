@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--获取指定项目的语言列表-->
+<template
+        id="src_github_repositories_language_get"
+        name="${src_github_repositories_language_get}"
+        protocol="HTTPS"
+        log="DEBUG"
+        storage="file"
+        ttl="30">
+    <endpoint>
+    <![CDATA[
+        https://api.github.com/repos/${owner}/${repo}/languages
+    ]]>
+    </endpoint>
+
+    <header>
+    <![CDATA[
+    {
+        "User-Agent":"GitHubJava/2.1.5",
+        "Accept":"application/vnd.github.beta+json"
+    }
+    ]]>
+    </header>
+    <!--如下为原始响应报文-->
+    <response-mapping>
+    <![CDATA[
+    {
+  "Go": 43449587,
+  "Python": 2913896,
+  "Shell": 1487673,
+  "HTML": 1199467,
+  "Makefile": 75248,
+  "Dockerfile": 55008,
+  "sed": 11607,
+  "C": 2840,
+  "Ruby": 1780
+}
+    ]]>
+    </response-mapping>
+</template>

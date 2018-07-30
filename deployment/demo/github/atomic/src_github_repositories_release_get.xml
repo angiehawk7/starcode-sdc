@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--获取指定项目的release版本信息-->
+<template
+        id="src_github_repositories_release_get"
+        name="${src_github_repositories_release_get}"
+        protocol="HTTPS"
+        log="DEBUG"
+        storage="file"
+        ttl="30">
+    <endpoint>
+    <![CDATA[
+        https://api.github.com/repos/kubernetes/kubernetes/releases?page=1&per_page=2
+    ]]>
+    </endpoint>
+
+    <header>
+    <![CDATA[
+    {
+        "User-Agent":"GitHubJava/2.1.5",
+        "Accept":"application/vnd.github.beta+json"
+    }
+    ]]>
+    </header>
+    <!--如下为原始响应报文-->
+    <response-mapping>
+    <![CDATA[
+   [
+  {
+    "url": "https://api.github.com/repos/kubernetes/kubernetes/releases/11975738",
+    "assets_url": "https://api.github.com/repos/kubernetes/kubernetes/releases/11975738/assets",
+    "upload_url": "https://uploads.github.com/repos/kubernetes/kubernetes/releases/11975738/assets{?name,label}",
+    "html_url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.11.1",
+    "id": 11975738,
+    "node_id": "MDc6UmVsZWFzZTExOTc1NzM4",
+    "tag_name": "v1.11.1",
+    "target_commitish": "release-1.11",
+    "name": "v1.11.1",
+    "draft": false,
+    "author": {
+      "login": "k8s-release-robot",
+      "id": 33505452,
+      "node_id": "MDQ6VXNlcjMzNTA1NDUy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/33505452?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/k8s-release-robot",
+      "html_url": "https://github.com/k8s-release-robot",
+      "followers_url": "https://api.github.com/users/k8s-release-robot/followers",
+      "following_url": "https://api.github.com/users/k8s-release-robot/following{/other_user}",
+      "gists_url": "https://api.github.com/users/k8s-release-robot/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/k8s-release-robot/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/k8s-release-robot/subscriptions",
+      "organizations_url": "https://api.github.com/users/k8s-release-robot/orgs",
+      "repos_url": "https://api.github.com/users/k8s-release-robot/repos",
+      "events_url": "https://api.github.com/users/k8s-release-robot/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/k8s-release-robot/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "prerelease": false,
+    "created_at": "2018-07-17T18:41:15Z",
+    "published_at": "2018-07-17T22:00:44Z",
+    "assets": [
+      {
+        "url": "https://api.github.com/repos/kubernetes/kubernetes/releases/assets/7912441",
+        "id": 7912441,
+        "node_id": "MDEyOlJlbGVhc2VBc3NldDc5MTI0NDE=",
+        "name": "kubernetes.tar.gz",
+        "label": "",
+        "uploader": {
+          "login": "k8s-release-robot",
+          "id": 33505452,
+          "node_id": "MDQ6VXNlcjMzNTA1NDUy",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/33505452?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/k8s-release-robot",
+          "html_url": "https://github.com/k8s-release-robot",
+          "followers_url": "https://api.github.com/users/k8s-release-robot/followers",
+          "following_url": "https://api.github.com/users/k8s-release-robot/following{/other_user}",
+          "gists_url": "https://api.github.com/users/k8s-release-robot/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/k8s-release-robot/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/k8s-release-robot/subscriptions",
+          "organizations_url": "https://api.github.com/users/k8s-release-robot/orgs",
+          "repos_url": "https://api.github.com/users/k8s-release-robot/repos",
+          "events_url": "https://api.github.com/users/k8s-release-robot/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/k8s-release-robot/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "content_type": "application/x-compressed",
+        "state": "uploaded",
+        "size": 1822043,
+        "download_count": 561,
+        "created_at": "2018-07-17T22:00:44Z",
+        "updated_at": "2018-07-17T22:00:45Z",
+        "browser_download_url": "https://github.com/kubernetes/kubernetes/releases/download/v1.11.1/kubernetes.tar.gz"
+      }
+    ],
+    "tarball_url": "https://api.github.com/repos/kubernetes/kubernetes/tarball/v1.11.1",
+    "zipball_url": "https://api.github.com/repos/kubernetes/kubernetes/zipball/v1.11.1",
+    "body": "See [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce) and [CHANGELOG-1.11.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#v1111) for details.\n\nSHA256 for `kubernetes.tar.gz`: `77d93c4ab10b1c4421835ebf3c81dc9c6d2a798949ee9132418e24d500c22d6e`\n\nAdditional binary downloads are linked in the [CHANGELOG-1.11.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#downloads-for-v1111)."
+  },
+  {
+    "url": "https://api.github.com/repos/kubernetes/kubernetes/releases/11886627",
+    "assets_url": "https://api.github.com/repos/kubernetes/kubernetes/releases/11886627/assets",
+    "upload_url": "https://uploads.github.com/repos/kubernetes/kubernetes/releases/11886627/assets{?name,label}",
+    "html_url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.8.15",
+    "id": 11886627,
+    "node_id": "MDc6UmVsZWFzZTExODg2NjI3",
+    "tag_name": "v1.8.15",
+    "target_commitish": "release-1.8",
+    "name": "v1.8.15",
+    "draft": false,
+    "author": {
+      "login": "k8s-release-robot",
+      "id": 33505452,
+      "node_id": "MDQ6VXNlcjMzNTA1NDUy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/33505452?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/k8s-release-robot",
+      "html_url": "https://github.com/k8s-release-robot",
+      "followers_url": "https://api.github.com/users/k8s-release-robot/followers",
+      "following_url": "https://api.github.com/users/k8s-release-robot/following{/other_user}",
+      "gists_url": "https://api.github.com/users/k8s-release-robot/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/k8s-release-robot/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/k8s-release-robot/subscriptions",
+      "organizations_url": "https://api.github.com/users/k8s-release-robot/orgs",
+      "repos_url": "https://api.github.com/users/k8s-release-robot/repos",
+      "events_url": "https://api.github.com/users/k8s-release-robot/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/k8s-release-robot/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "prerelease": false,
+    "created_at": "2018-07-11T17:50:39Z",
+    "published_at": "2018-07-11T23:06:14Z",
+    "assets": [
+      {
+        "url": "https://api.github.com/repos/kubernetes/kubernetes/releases/assets/7844933",
+        "id": 7844933,
+        "node_id": "MDEyOlJlbGVhc2VBc3NldDc4NDQ5MzM=",
+        "name": "kubernetes.tar.gz",
+        "label": "",
+        "uploader": {
+          "login": "k8s-release-robot",
+          "id": 33505452,
+          "node_id": "MDQ6VXNlcjMzNTA1NDUy",
+          "avatar_url": "https://avatars1.githubusercontent.com/u/33505452?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/k8s-release-robot",
+          "html_url": "https://github.com/k8s-release-robot",
+          "followers_url": "https://api.github.com/users/k8s-release-robot/followers",
+          "following_url": "https://api.github.com/users/k8s-release-robot/following{/other_user}",
+          "gists_url": "https://api.github.com/users/k8s-release-robot/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/k8s-release-robot/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/k8s-release-robot/subscriptions",
+          "organizations_url": "https://api.github.com/users/k8s-release-robot/orgs",
+          "repos_url": "https://api.github.com/users/k8s-release-robot/repos",
+          "events_url": "https://api.github.com/users/k8s-release-robot/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/k8s-release-robot/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "content_type": "application/x-compressed",
+        "state": "uploaded",
+        "size": 4137821,
+        "download_count": 432,
+        "created_at": "2018-07-11T23:06:14Z",
+        "updated_at": "2018-07-11T23:06:15Z",
+        "browser_download_url": "https://github.com/kubernetes/kubernetes/releases/download/v1.8.15/kubernetes.tar.gz"
+      }
+    ],
+    "tarball_url": "https://api.github.com/repos/kubernetes/kubernetes/tarball/v1.8.15",
+    "zipball_url": "https://api.github.com/repos/kubernetes/kubernetes/zipball/v1.8.15",
+    "body": "See [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce) and [CHANGELOG-1.8.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.8.md#v1815) for details.\n\nSHA256 for `kubernetes.tar.gz`: `d3478129e17e98e70d1108d841495cc6f54b218671c18ad0a5eb96ccfee79021`\n\nAdditional binary downloads are linked in the [CHANGELOG-1.8.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.8.md#downloads-for-v1815)."
+  }
+]
+    ]]>
+    </response-mapping>
+</template>

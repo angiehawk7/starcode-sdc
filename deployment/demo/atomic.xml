@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template
+        id="src_demo"
+        name="xxxx"
+        protocol=""
+        log=""
+        storage=""
+        ttl="">
+    <endpoint conn_timeout="" trasfer_timeout="">
+
+    </endpoint>
+
+    <header>
+
+    </header>
+    <request-pre-action>
+
+    </request-pre-action>
+    <request-mapping>
+
+    </request-mapping>
+    <response-pre-action>
+
+    </response-pre-action>
+    <response-mapping>
+
+    </response-mapping>
+</template>

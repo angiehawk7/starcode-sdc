@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--按照条件搜索github用户或者组织信息:无需鉴权认证-->
+<!--只能查询前1000条记录.每页最大100条记录-->
+<template
+        id="src_github_users_search"
+        name="${src_github_users_search}"
+        protocol="HTTPS"
+        log="DEBUG"
+        storage="file"
+        ttl="30">
+    <endpoint>
+    <![CDATA[
+        https://api.github.com/search/users?q=type:org&sort=followers&order=desc&page=2&per_page=100
+    ]]>
+    </endpoint>
+
+    <header>
+    <![CDATA[
+    {
+        "User-Agent":"GitHubJava/2.1.5",
+        "Accept":"application/vnd.github.beta+json"
+    }
+    ]]>
+    </header>
+    <!--如下为原始响应报文-->
+    <response-mapping>
+    <![CDATA[
+   {
+  "total_count": 2025182,
+  "incomplete_results": false,
+  "items": [
+    {
+      "login": "ianc-d-icp",
+      "id": 37558736,
+      "node_id": "MDEyOk9yZ2FuaXphdGlvbjM3NTU4NzM2",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/37558736?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ianc-d-icp",
+      "html_url": "https://github.com/ianc-d-icp",
+      "followers_url": "https://api.github.com/users/ianc-d-icp/followers",
+      "following_url": "https://api.github.com/users/ianc-d-icp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ianc-d-icp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ianc-d-icp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ianc-d-icp/subscriptions",
+      "organizations_url": "https://api.github.com/users/ianc-d-icp/orgs",
+      "repos_url": "https://api.github.com/users/ianc-d-icp/repos",
+      "events_url": "https://api.github.com/users/ianc-d-icp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ianc-d-icp/received_events",
+      "type": "Organization",
+      "site_admin": false,
+      "score": 1
+    },
+    {
+      "login": "Stalonarea",
+      "id": 37559058,
+      "node_id": "MDEyOk9yZ2FuaXphdGlvbjM3NTU5MDU4",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/37559058?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Stalonarea",
+      "html_url": "https://github.com/Stalonarea",
+      "followers_url": "https://api.github.com/users/Stalonarea/followers",
+      "following_url": "https://api.github.com/users/Stalonarea/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Stalonarea/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Stalonarea/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Stalonarea/subscriptions",
+      "organizations_url": "https://api.github.com/users/Stalonarea/orgs",
+      "repos_url": "https://api.github.com/users/Stalonarea/repos",
+      "events_url": "https://api.github.com/users/Stalonarea/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Stalonarea/received_events",
+      "type": "Organization",
+      "site_admin": false,
+      "score": 1
+    }
+  ]
+}
+    ]]>
+    </response-mapping>
+</template>

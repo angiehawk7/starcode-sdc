@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--获取所有组织-->
+<template
+        id="src_github_organizations_all_query"
+        name="${src_github_organizations_all_query}"
+        protocol="HTTPS"
+        log="DEBUG"
+        storage="file"
+        ttl="30">
+    <endpoint>
+    <![CDATA[
+        https://api.github.com//organizations?since=20000000
+    ]]>
+    </endpoint>
+
+    <header>
+    <![CDATA[
+    {
+        "User-Agent":"GitHubJava/2.1.5",
+        "Accept":"application/vnd.github.beta+json"
+    }
+    ]]>
+    </header>
+    <!--如下为原始响应报文-->
+    <response-mapping>
+    <![CDATA[
+   [
+  {
+    "login": "growingscripters",
+    "id": 20000025,
+    "node_id": "MDEyOk9yZ2FuaXphdGlvbjIwMDAwMDI1",
+    "url": "https://api.github.com/orgs/growingscripters",
+    "repos_url": "https://api.github.com/orgs/growingscripters/repos",
+    "events_url": "https://api.github.com/orgs/growingscripters/events",
+    "hooks_url": "https://api.github.com/orgs/growingscripters/hooks",
+    "issues_url": "https://api.github.com/orgs/growingscripters/issues",
+    "members_url": "https://api.github.com/orgs/growingscripters/members{/member}",
+    "public_members_url": "https://api.github.com/orgs/growingscripters/public_members{/member}",
+    "avatar_url": "https://avatars0.githubusercontent.com/u/20000025?v=4",
+    "description": "腳本相關研究討論"
+  }
+]
+    ]]>
+    </response-mapping>
+</template>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--获取指定项目的贡献者列表-->
+<template
+        id="src_github_repositories_contributors_get"
+        name="${src_github_repositories_contributors_get}"
+        protocol="HTTPS"
+        log="DEBUG"
+        storage="file"
+        ttl="30">
+    <!--
+    type:Can be one of all, public, private, forks, sources, member. Default: all
+    -->
+    <endpoint>
+    <![CDATA[
+        https://api.github.com/repos/${owner}/${repo}/contributors?page=1&per_page=2
+    ]]>
+    </endpoint>
+
+    <header>
+    <![CDATA[
+    {
+        "User-Agent":"GitHubJava/2.1.5",
+        "Accept":"application/vnd.github.beta+json"
+    }
+    ]]>
+    </header>
+    <!--如下为原始响应报文-->
+    <response-mapping>
+    <![CDATA[
+    [
+  {
+    "login": "MabinGo",
+    "id": 10934340,
+    "node_id": "MDQ6VXNlcjEwOTM0MzQw",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/10934340?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/MabinGo",
+    "html_url": "https://github.com/MabinGo",
+    "followers_url": "https://api.github.com/users/MabinGo/followers",
+    "following_url": "https://api.github.com/users/MabinGo/following{/other_user}",
+    "gists_url": "https://api.github.com/users/MabinGo/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/MabinGo/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/MabinGo/subscriptions",
+    "organizations_url": "https://api.github.com/users/MabinGo/orgs",
+    "repos_url": "https://api.github.com/users/MabinGo/repos",
+    "events_url": "https://api.github.com/users/MabinGo/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/MabinGo/received_events",
+    "type": "User",
+    "site_admin": false,
+    "contributions": 114
+  },
+  {
+    "login": "liangchenye",
+    "id": 13341875,
+    "node_id": "MDQ6VXNlcjEzMzQxODc1",
+    "avatar_url": "https://avatars0.githubusercontent.com/u/13341875?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/liangchenye",
+    "html_url": "https://github.com/liangchenye",
+    "followers_url": "https://api.github.com/users/liangchenye/followers",
+    "following_url": "https://api.github.com/users/liangchenye/following{/other_user}",
+    "gists_url": "https://api.github.com/users/liangchenye/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/liangchenye/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/liangchenye/subscriptions",
+    "organizations_url": "https://api.github.com/users/liangchenye/orgs",
+    "repos_url": "https://api.github.com/users/liangchenye/repos",
+    "events_url": "https://api.github.com/users/liangchenye/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/liangchenye/received_events",
+    "type": "User",
+    "site_admin": false,
+    "contributions": 37
+  }
+]
+    ]]>
+    </response-mapping>
+</template>
