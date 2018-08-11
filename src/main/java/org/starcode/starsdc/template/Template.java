@@ -1,5 +1,9 @@
 package org.starcode.starsdc.template;
 
+import org.starcode.starsdc.utils.SDCException;
+
+import java.io.File;
+
 /**
  * 作者:angie_hawk7
  * 日期:2018/7/30 13:36
@@ -154,5 +158,21 @@ public class Template {
 
     public void setResponse(Response response) {
         this.response = response;
+    }
+
+    /**
+     * 解析模板文件
+     * @param f 模板文件
+     * @param ns ns
+     */
+    public void parse(File f, String ns) throws SDCException{
+        //解析文件
+    }
+
+    /**
+     * 属性校验
+     */
+    private void validate() throws SDCException{
+
     }
 }

@@ -27,4 +27,8 @@ public class TemplateStorageMem implements TemplateStorage {
     public List<Template> listAll() {
         return null;
     }
+
+    public void clean() {
+
+    }
 }

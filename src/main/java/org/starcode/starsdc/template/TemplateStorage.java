@@ -23,4 +23,6 @@ public interface TemplateStorage {
     //获取所有的模板列表
     List<Template> listAll();
 
+    void clean();
+
 }
