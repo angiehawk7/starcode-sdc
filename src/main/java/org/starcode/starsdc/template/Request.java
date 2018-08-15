@@ -1,5 +1,8 @@
 package org.starcode.starsdc.template;
 
+import org.dom4j.Document;
+import org.starcode.starsdc.utils.SDCException;
+
 /**
  * 作者:angie_hawk7
  * 日期:2018/7/30 13:35
@@ -25,5 +28,25 @@ public class Request {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    /**
+     * 创建Request对象
+     * @param doc
+     * @param ns
+     * @return
+     * @throws SDCException
+     */
+    public static Request create(Document doc,String ns) throws SDCException {
+        return null;
+
+    }
+
+    /**
+     * 属性校验
+     * @throws SDCException
+     */
+    public void validate() throws SDCException{
+
     }
 }

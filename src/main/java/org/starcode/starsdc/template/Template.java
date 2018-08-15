@@ -1,5 +1,12 @@
 package org.starcode.starsdc.template;
 
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 import org.starcode.starsdc.utils.SDCException;
 
 import java.io.File;
@@ -10,6 +17,7 @@ import java.io.File;
  * 描述:原子模板对象
  */
 public class Template {
+    private static final Logger LOG = LoggerFactory.getLogger(Template.class);
     //模板namespace
     private String ns;
     //模板标识
@@ -161,18 +169,58 @@ public class Template {
     }
 
     /**
+     *
      * 解析模板文件
      * @param f 模板文件
      * @param ns ns
+     * @return
+     * @throws SDCException
      */
-    public void parse(File f, String ns) throws SDCException{
-        //解析文件
+    public static Template create(File f, String ns) throws SDCException{
+        SAXReader reader = new SAXReader();
+        Document doc=null;
+        try{
+            doc = reader.read(f);
+
+        }catch (DocumentException e){
+            LOG.error(e.getMessage(),e);
+            //TODO 文件格式非法
+        }
+        Template tpl=new Template();
+        Element node = doc.getRootElement();
+        tpl.setId(StringUtils.trimWhitespace(node.attributeValue("id")));
+        tpl.setName(StringUtils.trimWhitespace(node.attributeValue("name")));
+        tpl.setProtocol(StringUtils.trimWhitespace(node.attributeValue("protocol")));
+        tpl.setLog(StringUtils.trimWhitespace(node.attributeValue("log")));
+        tpl.setStorage(StringUtils.trimWhitespace(node.attributeValue("storage")));
+        tpl.setTtl(StringUtils.trimWhitespace(node.attributeValue("ttl")));
+        Endpoint endpoint=Endpoint.create(doc,ns);
+        tpl.setEndpoint(endpoint);
+        Header header=Header.create(doc,ns);
+        tpl.setHeader(header);
+        Plugin reqPlugin=Plugin.createReqPlugin(doc,ns);
+        tpl.setPreRequestPlugin(reqPlugin);
+        Request request=Request.create(doc,ns);
+        tpl.setRequest(request);
+        Plugin rspPlugin=Plugin.createRspPlugin(doc,ns);
+        tpl.setPreResponsePlugin(rspPlugin);
+        Response rsp=Response.create(doc,ns);
+        tpl.setResponse(rsp);
+        tpl.validate();
+        return tpl;
     }
 
     /**
      * 属性校验
+     * @throws SDCException
      */
-    private void validate() throws SDCException{
-
+    public void validate() throws SDCException{
+        //TODO
+        this.getEndpoint().validate();
+        this.getHeader().validate();
+        this.getRequest().validate();
+        this.getPreRequestPlugin().validate();
+        this.getPreResponsePlugin().validate();
+        this.getResponse().validate();
     }
 }

@@ -100,8 +100,7 @@ public class TemplateManager {
             return;
         }
         for (File f : atoFiles) {
-            Template tpl = new Template();
-            tpl.parse(f, ns);
+            Template tpl = Template.create(f,ns);
             storage.addTempate(tpl);
         }
     }
