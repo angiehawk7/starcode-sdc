@@ -194,17 +194,17 @@ public class Template {
         tpl.setLog(StringUtils.trimWhitespace(node.attributeValue("log")));
         tpl.setStorage(StringUtils.trimWhitespace(node.attributeValue("storage")));
         tpl.setTtl(StringUtils.trimWhitespace(node.attributeValue("ttl")));
-        Endpoint endpoint=Endpoint.create(doc,ns);
+        Endpoint endpoint=Endpoint.create(doc);
         tpl.setEndpoint(endpoint);
-        Header header=Header.create(doc,ns);
+        Header header=Header.create(doc);
         tpl.setHeader(header);
-        Plugin reqPlugin=Plugin.createReqPlugin(doc,ns);
+        Plugin reqPlugin=Plugin.createReqPlugin(doc);
         tpl.setPreRequestPlugin(reqPlugin);
-        Request request=Request.create(doc,ns);
+        Request request=Request.create(doc);
         tpl.setRequest(request);
-        Plugin rspPlugin=Plugin.createRspPlugin(doc,ns);
+        Plugin rspPlugin=Plugin.createRspPlugin(doc);
         tpl.setPreResponsePlugin(rspPlugin);
-        Response rsp=Response.create(doc,ns);
+        Response rsp=Response.create(doc);
         tpl.setResponse(rsp);
         tpl.validate();
         return tpl;
@@ -216,11 +216,11 @@ public class Template {
      */
     public void validate() throws SDCException{
         //TODO
-        this.getEndpoint().validate();
-        this.getHeader().validate();
-        this.getRequest().validate();
-        this.getPreRequestPlugin().validate();
-        this.getPreResponsePlugin().validate();
-        this.getResponse().validate();
+        this.getEndpoint().validate(this.getNs(),this.getId());
+        this.getHeader().validate(this.getNs(),this.getId());
+        this.getRequest().validate(this.getNs(),this.getId());
+        this.getPreRequestPlugin().validate(this.getNs(),this.getId());
+        this.getPreResponsePlugin().validate(this.getNs(),this.getId());
+        this.getResponse().validate(this.getNs(),this.getId());
     }
 }

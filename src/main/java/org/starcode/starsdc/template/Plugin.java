@@ -1,6 +1,7 @@
 package org.starcode.starsdc.template;
 
 import org.dom4j.Document;
+import org.starcode.starsdc.utils.AdapterRequest;
 import org.starcode.starsdc.utils.SDCException;
 
 /**
@@ -31,11 +32,10 @@ public class Plugin {
     /**
      * 创建前置插件对象
      * @param doc
-     * @param ns
      * @return
      * @throws SDCException
      */
-    public static Plugin createReqPlugin(Document doc,String ns) throws SDCException {
+    public static Plugin createReqPlugin(Document doc) throws SDCException {
         return null;
 
     }
@@ -43,19 +43,30 @@ public class Plugin {
     /**
      * 创建后置插件对象
      * @param doc
-     * @param ns
      * @return
      * @throws SDCException
      */
-    public static Plugin createRspPlugin(Document doc,String ns) throws SDCException {
+    public static Plugin createRspPlugin(Document doc) throws SDCException {
         return null;
 
     }
     /**
      * 属性校验
+     * @param ns
+     * @param id
      * @throws SDCException
      */
-    public void validate() throws SDCException{
+    public void validate(String ns,String id) throws SDCException{
 
+    }
+
+    /**
+     * 模板翻译
+     * @param req
+     * @return
+     * @throws SDCException
+     */
+    public String transfter(AdapterRequest req) throws SDCException{
+        return null;
     }
 }

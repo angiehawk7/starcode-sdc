@@ -7,6 +7,16 @@ package org.starcode.starsdc.utils;
  */
 public class SDCException extends Exception {
     private String code;
-    private String msg;
+    public SDCException(Throwable cause) {
+        super(cause);
+    }
+    public SDCException(String code,String msg) {
+        super(msg);
+        this.code=code;
+    }
+
+    public String getCode() {
+        return code;
+    }
 
 }

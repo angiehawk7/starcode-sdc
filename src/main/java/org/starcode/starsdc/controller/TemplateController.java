@@ -1,9 +1,16 @@
 package org.starcode.starsdc.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.starcode.starsdc.template.Template;
+import org.starcode.starsdc.template.TemplateManager;
+import org.starcode.starsdc.template.TemplateStorage;
+import org.starcode.starsdc.utils.AdapterResponse;
+
+import java.util.List;
 
 /**
  * 作者:angie_hawk7
@@ -14,13 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class TemplateController {
 
+    private TemplateStorage storage=TemplateManager.getInstance().getStorage();
     /**
      * 查询所有模板列表
      * @return
      */
     @GetMapping("/templates")
     String queryAll() {
-        return "ok";
+        List<Template> templates=storage.listAll();
+        AdapterResponse response=new AdapterResponse();
+        response.setData(templates);
+        return JSON.toJSONString(response);
     }
 
     /**
@@ -30,7 +41,10 @@ public class TemplateController {
      */
     @GetMapping("/templates/{ns}")
     String queryNSTemplatez(@PathVariable String ns) {
-        return "ok";
+        List<Template> templates=storage.listTemplates(ns);
+        AdapterResponse response=new AdapterResponse();
+        response.setData(templates);
+        return JSON.toJSONString(response);
     }
 
     /**
@@ -42,6 +56,9 @@ public class TemplateController {
     @GetMapping("/template/{ns}/{id}")
     String getTemplate(@PathVariable String ns,
                        @PathVariable String id) {
-        return "ok";
+        Template tpl=storage.getTemplate(ns,id);
+        AdapterResponse response=new AdapterResponse();
+        response.setData(tpl);
+        return JSON.toJSONString(response);
     }
 }

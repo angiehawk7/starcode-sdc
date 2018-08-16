@@ -18,7 +18,7 @@ public interface TemplateStorage {
     List<Template> listTemplates(String ns);
 
     //查询指定模板的详情
-    Template getTemplate(String id);
+    Template getTemplate(String ns,String id);
 
     //获取所有的模板列表
     List<Template> listAll();

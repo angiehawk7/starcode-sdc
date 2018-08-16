@@ -45,9 +45,9 @@ public class TemplateManager {
         LOG.info("TemplateManager.start.");
         String storageType=env.getEnv(STORAGE_KEY);
         if("mem".equals(storageType)){
-            storage=new TemplateStorageMem();
+            storage=TemplateStorageMem.getInstance();
         }else{
-            storage=new TemplateStorageMem();
+            storage=TemplateStorageMem.getInstance();
         }
         loadTpl();
         LOG.info("TemplateManager.start end.");
@@ -60,6 +60,14 @@ public class TemplateManager {
         storage.clean();
         storage = null;
         LOG.info("TemplateManager.stop end.");
+    }
+
+    /**
+     * 获取storage
+     * @return
+     */
+    public TemplateStorage getStorage() {
+        return storage;
     }
 
     private void loadTpl() throws Exception{
